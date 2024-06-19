@@ -1,0 +1,26 @@
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { ShopieService } from './shopie.service';
+import { HttpClientModule } from '@angular/common/http';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet,HttpClientModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'shopping';
+
+  constructor(private ss:ShopieService){
+    
+   this.ss.myShopie().subscribe(res=>{
+    console.log(res);
+   })
+     
+
+  }
+ 
+  
+}
